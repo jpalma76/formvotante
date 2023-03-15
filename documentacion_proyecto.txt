@@ -1,0 +1,28 @@
+documentacion de proyecto votantes jpalma76@2023
+
+Para comenzar debe crear una base de datos con nombre votantes y pegar el contenido del archivo votantes.txt para generar la base de datos y la tabla correspodiente.
+
+Diseño de tabla votantes en base a formulario.
+
+Variables.
+$txtIdVotante
+$txtNombre
+$txtAlias
+$txtRut
+$txtEmail
+$txtRegion
+$txtComuna
+$txtCandidato
+$txtWeb
+$txtTv
+$txtRrss
+$txtAmigo
+
+El formulario debe solicitar los datos y registrarlos en la tabla votantes
+
+los datos region y comuna se deben obtener de una bdd
+
+INSERT INTO `votantes` (`id_votante`, `nombre_votante`, `alias`, `rut_votante`, `email_votante`, `region_votante`, `comuna_votante`, `eleccion_candidato`, `eleccion1`, `eleccion2`, `eleccion3`, `eleccion4`) VALUES ();
+
+
+
