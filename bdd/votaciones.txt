@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-03-2023 a las 03:16:23
+-- Tiempo de generación: 17-03-2023 a las 03:59:39
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -47,7 +47,16 @@ CREATE TABLE `votantes` (
 --
 
 INSERT INTO `votantes` (`id_votante`, `nombre_votante`, `alias_votante`, `rut_votante`, `email_votante`, `region_votante`, `comuna_votante`, `eleccion_candidato`, `eleccion1`, `eleccion2`, `eleccion3`, `eleccion4`) VALUES
-(16, 'Juan Palma', 'jpalma76', '12345678-9', 'correo@ejemplo.com', 'Maule', 'Comuna 1', 'Candidato 2', 'Web', 'TV', 'Redes Sociales', 'Amigo');
+(57, 'Juan Palma', 'jpalma76', '1549556654-5', 'juan.palma.alvarez@gmail.com', '', '', 'Candidato 1', 'Web', 'TV', 'Redes Sociales', 'Amigo'),
+(58, 'Juan Palma', 'jpalma76', '1549556654-5', 'correo@ejemplo.com', 'Atacama', 'María Elena', 'Candidato 1', '', '', '', ''),
+(59, 'Juan Palma', 'otro alias', '789654321-5', 'correo@ejemplo.com', 'Metropolitana de Santiago', 'María Elena', 'Candidato 1', 'Web', 'TV', 'Redes Sociales', 'Amigo'),
+(60, 'Juan Palma', 'jpalma76', '1549556654-5', 'juan.palma.alvarez@gmail.com', 'Ñuble', 'San Rosendo', 'Candidato 3', 'Web', '', 'Redes Sociales', 'Amigo'),
+(61, 'Juan Palma', 'jpalma76', '1549556654-5', 'juan.palma.alvarez@gmail.com', '', '', 'Candidato 3', 'Web', '', 'Redes Sociales', ''),
+(62, 'Juan Palma', 'jpalma76', '1549556654-5', 'correo@ejemplo.com', 'Arica y Parinacota', 'María Elena', 'Candidato 3', 'Web', 'TV', 'Redes Sociales', 'Amigo'),
+(63, 'omar palma', 'otro alias', '11245687-0', 'correo@ejemplo.com', 'Metropolitana de Santiago', 'Peñaflor', 'Candidato 4', 'Web', '', 'Redes Sociales', ''),
+(64, 'omar palma', 'otro alias', '11245687-0', 'correo@ejemplo.com', 'Metropolitana de Santiago', 'Peñaflor', 'Candidato 4', 'Web', '', 'Redes Sociales', ''),
+(65, 'omar palma', 'otro alias', '11245687-0', 'correo@ejemplo.com', 'Metropolitana de Santiago', 'Peñaflor', 'Candidato 4', 'Web', '', 'Redes Sociales', ''),
+(66, 'omar palma', 'otro alias', '11245687-0', 'correo@ejemplo.com', 'Metropolitana de Santiago', 'Peñaflor', 'Candidato 4', 'Web', '', 'Redes Sociales', '');
 
 --
 -- Índices para tablas volcadas
@@ -67,7 +76,7 @@ ALTER TABLE `votantes`
 -- AUTO_INCREMENT de la tabla `votantes`
 --
 ALTER TABLE `votantes`
-  MODIFY `id_votante` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_votante` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

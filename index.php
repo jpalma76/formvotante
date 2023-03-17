@@ -14,8 +14,10 @@ $txtRrss=(isset($_POST['txtRrss']))?$_POST['txtRrss']:"";
 $txtAmigo=(isset($_POST['txtAmigo']))?$_POST['txtAmigo']:"";
 $accion=(isset($_POST['accion']))?$_POST['accion']:"";
 
+/* Conexiones a las distintas bases de datos y selectores */
 include('./config/conexion.php');
 include('./selector.php');
+include('./selector2.php');
 
 switch($accion) {
     case "votar":

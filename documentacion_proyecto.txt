@@ -1,28 +1,27 @@
 documentacion de proyecto votantes jpalma76@2023
 
-Para comenzar debe crear una base de datos con nombre votantes y pegar el contenido del archivo votantes.txt para generar la base de datos y la tabla correspodiente.
+Durante la construcción del proyecto se han tenido que ir haciendo varios cambios como el de trabajar con más de una base de datos, 
+en la carpeta config estan las conexiones a las distintas bases de datos:
 
-Diseño de tabla votantes en base a formulario.
+- conexion.php se conecta con la base de datos votaciones, que es donde se guardan los valosres del formulario y el registro 
+de la votaciones.
 
-Variables.
-$txtIdVotante
-$txtNombre
-$txtAlias
-$txtRut
-$txtEmail
-$txtRegion
-$txtComuna
-$txtCandidato
-$txtWeb
-$txtTv
-$txtRrss
-$txtAmigo
+- conexion_2.php se conecta a la base de datos comunas por regiones que es la primera base de dato que encontré que no me sirvió
+por completo, por lo que solo utilicé la tabla regiones. No me sirvió por completo porque al tener la tabla provincias, los datos
+estaban relacionados entre si pasando de regiones a provincias y de provincias a comunas, lo que no me servía para el proyecto en si
+y modificar todos los registros para poder utilizarlos me iba a llevar demaciado tiempo e iba a ser tiempo desperdiciado.
+
+- conexion _3.php esta base de datos si tiene solo los campos regiones y comunas pero están guardados con un cotejamiento que 
+no soporta los caracteres especiales como la ñ por ejemplo, por lo que de esta base obtube los datos de la tabla comunas que 
+estaba mas clara.
+
+para solucionar el problema que se presentaba con las distintas bases de datos cambié los nombres de la base de datos comuna_región 
+que es mucho mas fácil para la relación con los codigos ya construidos.
+
+Para comenzar en la carpeta bdd hay unos archivos txt que son los codigos sql de las bases de datos utilizadas en el proyecto, 
+lo más rápido es cambiar el nombre de las extensiones por sql e importarlas del localhost para probar el programa.
+
 
 El formulario debe solicitar los datos y registrarlos en la tabla votantes
 
 los datos region y comuna se deben obtener de una bdd
-
-INSERT INTO `votantes` (`id_votante`, `nombre_votante`, `alias`, `rut_votante`, `email_votante`, `region_votante`, `comuna_votante`, `eleccion_candidato`, `eleccion1`, `eleccion2`, `eleccion3`, `eleccion4`) VALUES ();
-
-
-
