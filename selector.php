@@ -15,7 +15,7 @@ $sentenciaSQL=$conexion_2->prepare("SELECT * FROM provincias");
 $sentenciaSQL->execute();
 $provincias=$sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
 
-$sentenciaSQL=$conexion_2->prepare("SELECT * FROM comunas WHERE id=");
+$sentenciaSQL=$conexion_2->prepare("SELECT * FROM comunas");
 $sentenciaSQL->execute();
 $comunas=$sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
 
