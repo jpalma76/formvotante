@@ -7,7 +7,6 @@ $contrasenia="";
 
 try {
     $conexion_2=new PDO("mysql:host=$host;dbname=$bd",$usuario,$contrasenia);
-    if($conexion_2) { echo "Conexion establecida..."; }
 } catch (Exception $ex) {
     echo $ex->getMessage(); 
 }

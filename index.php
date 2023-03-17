@@ -15,6 +15,7 @@ $txtAmigo=(isset($_POST['txtAmigo']))?$_POST['txtAmigo']:"";
 $accion=(isset($_POST['accion']))?$_POST['accion']:"";
 
 include('./config/conexion.php');
+include('./selector.php');
 
 switch($accion) {
     case "votar":
@@ -61,61 +62,58 @@ $registroVotantes=$sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
             <form method="post">
                 <div class="item">
                     <label for="txtNombre" class="label-data">Nombre y Apellido</label>
-                    <input type="text" class="input-data" name="txtNombre" id="txtNombre">
+                    <input type="text" class="input-data" name="txtNombre" id="txtNombre" required>
                 </div>
 
                 <div class="item">
                     <label for="txtAlias" class="label-data">Alias</label>
-                    <input type="text" class="input-data" name="txtAlias" id="txtAlias">
+                    <input type="text" class="input-data" name="txtAlias" id="txtAlias" required>
                 </div>
 
                 <div class="item">
                     <label for="txtRut" class="label-data">RUT</label>
-                    <input type="text" class="input-data" name="txtRut" id="txtRut">
+                    <input type="text" class="input-data" name="txtRut" id="txtRut" required>
                 </div>
 
                 <div class="item">
                     <label for="txtEmail" class="label-data">Email</label>
-                    <input type="email" class="input-data" name="txtEmail" id="txtEmail">
+                    <input type="email" class="input-data" name="txtEmail" id="txtEmail" required>
                 </div>
 
                 <div class="item">
                     <label for="txtRegion" class="label-data">Region</label>
+
                     <select class="input" name="txtRegion" id="txtRegion">
-                        <option class="input" value="null"></option>
-                        <option class="input" value="Arica y Parinacota">Arica y parinacota</option>
-                        <option class="input" value="Antofagasta">Antofagasta</option>
-                        <option class="input" value="Atacama">Atacama</option>
-                        <option class="input" value="Coquimbo">Coquimbo</option>
-                        <option class="input" value="Valparaiso">Valparaiso</option>
-                        <option class="input" value="Libertador Gral. Bernardo O'Higgins">Libertador Gral. Bernardo O'Higgins</option>
-                        <option class="input" value="Maule">Maule</option>
-                        <option class="input" value="Ñuble">Ñuble</option>
-                        <option class="input" value="Biobio">Biobio</option>
-                        <option class="input" value="Araucania">de la Araucanía</option>
-                        <option class="input" value="Los Rios">Los Rios</option>
-                        <option class="input" value="Los Lagos">Los lagos</option>
-                        <option class="input" value="Aisen">Aisen</option>
-                        <option class="input" value="Magallanes y la Antartica Chilena">Magallanes y la Antartica</option>
-                        <option class="input" value="Metropolitana">Metropolitana</option>
+                        <?php forEach($regiones as $region) { ?>
+                            <option value="<?php echo $region['region']; ?>">
+                                <?php echo $region['region']; ?>
+                            </option>
+                        <?php } ?>
+                       
                     </select>                
                 </div>
 
                 <div class="item">
                     <label for="txtComuna" class="label-data">Comuna</label>
-                    <select class="input" name="txtComuna" id="txtComuna">
-                        <option class="input" value="null"></option>
-                        <option class="input" value="Comuna 1">comuna 1</option>
-                        <option class="input" value="Comuna 2">comuna 2</option>
+                    <select class="input" name="txtComuna" id="txtComuna" value="">
+
+                        <?php forEach($comunas as $comuna) { ?>
+                            <option value="<?php echo $comuna['comuna']; ?>">
+                                <?php echo $comuna['comuna']; ?>
+                            </option>
+                        <?php } ?>
+
                     </select>                
                 </div>
 
                 <div class="item">
                     <label for="txtCandidato" class="label-data">Candidato</label>
-                    <select class="input" name="txtCandidato" id="txtCandidato">
+                    <select class="input" name="txtCandidato" id="txtCandidato" required>
                         <option class="input" value="null"></option>
                         <option class="input" value="Candidato 1">Candidato 1</option>
                         <option class="input" value="Candidato 2">Candidato 2</option>
+                        <option class="input" value="Candidato 3">Candidato 3</option>
+                        <option class="input" value="Candidato 4">Candidato 4</option>
                     </select>                
                 </div>
 
@@ -136,7 +134,7 @@ $registroVotantes=$sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
                 </div>
 
                 <section class="votar">
-                    <button type="submit" name="accion" id="votar" value="votar"> Votar </button>
+                    <button type="submit" name="accion" id="votar" value="votar">Votar</button>
                 </section>
             </form>
 
@@ -176,11 +174,9 @@ $registroVotantes=$sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
                 <td><?php echo $votante['eleccion2']; ?></td>
                 <td><?php echo $votante['eleccion3']; ?></td>
                 <td><?php echo $votante['eleccion4']; ?></td>
-              
             </tr>
         <?php } ?>
         </tbody>
-
 
 </body>
 </html>
