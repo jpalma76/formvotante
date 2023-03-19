@@ -15,9 +15,14 @@ $txtAmigo=(isset($_POST['txtAmigo']))?$_POST['txtAmigo']:"";
 $accion=(isset($_POST['accion']))?$_POST['accion']:"";
 
 /* Conexiones a las distintas bases de datos y selectores */
-include('./config/conexion.php');
-include('./selector.php');
-include('./selector2.php');
+
+include('./config/conexion.php'); // BD PRINCIPAL
+
+include('./selector.php'); // archivo de lectura de tabla regiones
+
+include('./selector2.php'); // archivo de lectura de tabla comunas
+
+include('./selector3.php'); // archivo de lectura de tabla candidatos
 
 switch($accion) {
     case "votar":
@@ -41,6 +46,7 @@ $sentenciaSQL=$conexion->prepare("SELECT * FROM votantes");
 $sentenciaSQL->execute();
 $registroVotantes=$sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
 
+
 ?>
 
 <!DOCTYPE html>
@@ -52,6 +58,7 @@ $registroVotantes=$sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
     <title>registro votaciones</title>
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
 </head>
 <body>
     <section class="formulario">
@@ -85,37 +92,42 @@ $registroVotantes=$sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
                 <div class="item">
                     <label for="txtRegion" class="label-data">Region</label>
 
+                    <!-- REGION -->
                     <select class="input" name="txtRegion" id="txtRegion">
                         <?php forEach($regiones as $region) { ?>
                             <option value="<?php echo $region['region']; ?>">
-                                <?php echo $region['region']; ?>
+                                <?php echo $region['id']; ?> - <?php echo $region['region']; ?>
                             </option>
                         <?php } ?>
-                       
                     </select>                
                 </div>
-
+                
+                <!-- COMUNA -->
+                
                 <div class="item">
+                    
                     <label for="txtComuna" class="label-data">Comuna</label>
-                    <select class="input" name="txtComuna" id="txtComuna" value="">
 
-                        <?php forEach($comunas as $comuna) { ?>
+                    <select class="input" name="txtComuna" id="txtComuna">
+                        <?php foreach($comunas as $comuna) { ?>
                             <option value="<?php echo $comuna['comuna']; ?>">
-                                <?php echo $comuna['comuna']; ?>
+                                <?php echo $comuna['id']; ?> - <?php echo $comuna['comuna']; ?>
                             </option>
-                        <?php } ?>
+                        <?php }?>
+                    </select>
 
-                    </select>                
                 </div>
 
+                <!-- CANDIDATOS -->
                 <div class="item">
                     <label for="txtCandidato" class="label-data">Candidato</label>
-                    <select class="input" name="txtCandidato" id="txtCandidato" required>
-                        <option class="input" value="null"></option>
-                        <option class="input" value="Candidato 1">Candidato 1</option>
-                        <option class="input" value="Candidato 2">Candidato 2</option>
-                        <option class="input" value="Candidato 3">Candidato 3</option>
-                        <option class="input" value="Candidato 4">Candidato 4</option>
+
+                    <select class="input" name="txtCandidato" id="txtCandidato" >
+                    <?php foreach($candidatos as $candidato) { ?>
+                            <option value="<?php echo $candidato['nombre_candidato']; ?>">
+                                <?php echo $candidato['nombre_candidato']; ?> - <?php echo $candidato['distrito']; ?>
+                            </option>
+                        <?php }?>
                     </select>                
                 </div>
 
@@ -180,5 +192,29 @@ $registroVotantes=$sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
         <?php } ?>
         </tbody>
 
+<!-- <script src="js/index.js"></script> -->
+<script type="text/javascript">
+	$(document).ready(function() {
+		//$('#txtRegion').val(2);
+		recargaLista();
+
+		S('#txtRegion').change(function() => {
+			recargaLista();
+		});
+	})	
+</script>
+
+<script type="text/javascript">
+	function recargaLista() {
+		$.ajax({
+			type:"POST",
+			url:"datos.php",
+			data:"continente=" + $('#txtRegion').val(),
+			succes:function(r){
+				$('#select2lista').html(r);
+			}
+		});
+	}
+</script>
 </body>
 </html>

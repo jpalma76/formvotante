@@ -1,0 +1,14 @@
+documentacion de proyecto votantes jpalma76@2023
+
+Durante la construcción del proyecto se han tenido que ir haciendo varios cambios como el de trabajar con más de una base de datos, 
+en la carpeta config estan las conexiones a las distintas bases de datos:
+
+- conexion.php se conecta con la base de datos votaciones, que es donde se guardan los valores del formulario y el registro 
+de la votaciones.
+
+- conexion_2.php se conecta a la base de datos region_comuna dejándose como base de obtencion de datos de regiones y comunas.
+
+- conexion_3.php se deja para obtencion de datos de candidatos, la cual se conecta con el archivo conexion.php a la bd votaciones y a la tabla candidatos.
+
+- se modifican todos los archivos para implementacion de cambios.
+

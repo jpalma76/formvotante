@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-03-2023 a las 03:59:39
+-- Tiempo de generación: 19-03-2023 a las 03:05:55
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -20,6 +20,28 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `votaciones`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `candidatos`
+--
+
+CREATE TABLE `candidatos` (
+  `id` int(11) NOT NULL,
+  `nombre_candidato` varchar(200) NOT NULL,
+  `distrito` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `candidatos`
+--
+
+INSERT INTO `candidatos` (`id`, `nombre_candidato`, `distrito`) VALUES
+(1, 'candidato 1', 'distrito 1'),
+(2, 'candidato 2', 'distrito 2'),
+(3, 'candidato 3', 'distrito 3'),
+(4, 'candidato 4', 'distrito 4');
 
 -- --------------------------------------------------------
 
@@ -47,20 +69,17 @@ CREATE TABLE `votantes` (
 --
 
 INSERT INTO `votantes` (`id_votante`, `nombre_votante`, `alias_votante`, `rut_votante`, `email_votante`, `region_votante`, `comuna_votante`, `eleccion_candidato`, `eleccion1`, `eleccion2`, `eleccion3`, `eleccion4`) VALUES
-(57, 'Juan Palma', 'jpalma76', '1549556654-5', 'juan.palma.alvarez@gmail.com', '', '', 'Candidato 1', 'Web', 'TV', 'Redes Sociales', 'Amigo'),
-(58, 'Juan Palma', 'jpalma76', '1549556654-5', 'correo@ejemplo.com', 'Atacama', 'María Elena', 'Candidato 1', '', '', '', ''),
-(59, 'Juan Palma', 'otro alias', '789654321-5', 'correo@ejemplo.com', 'Metropolitana de Santiago', 'María Elena', 'Candidato 1', 'Web', 'TV', 'Redes Sociales', 'Amigo'),
-(60, 'Juan Palma', 'jpalma76', '1549556654-5', 'juan.palma.alvarez@gmail.com', 'Ñuble', 'San Rosendo', 'Candidato 3', 'Web', '', 'Redes Sociales', 'Amigo'),
-(61, 'Juan Palma', 'jpalma76', '1549556654-5', 'juan.palma.alvarez@gmail.com', '', '', 'Candidato 3', 'Web', '', 'Redes Sociales', ''),
-(62, 'Juan Palma', 'jpalma76', '1549556654-5', 'correo@ejemplo.com', 'Arica y Parinacota', 'María Elena', 'Candidato 3', 'Web', 'TV', 'Redes Sociales', 'Amigo'),
-(63, 'omar palma', 'otro alias', '11245687-0', 'correo@ejemplo.com', 'Metropolitana de Santiago', 'Peñaflor', 'Candidato 4', 'Web', '', 'Redes Sociales', ''),
-(64, 'omar palma', 'otro alias', '11245687-0', 'correo@ejemplo.com', 'Metropolitana de Santiago', 'Peñaflor', 'Candidato 4', 'Web', '', 'Redes Sociales', ''),
-(65, 'omar palma', 'otro alias', '11245687-0', 'correo@ejemplo.com', 'Metropolitana de Santiago', 'Peñaflor', 'Candidato 4', 'Web', '', 'Redes Sociales', ''),
-(66, 'omar palma', 'otro alias', '11245687-0', 'correo@ejemplo.com', 'Metropolitana de Santiago', 'Peñaflor', 'Candidato 4', 'Web', '', 'Redes Sociales', '');
+(72, 'Juan Palma', 'otro alias', '1549556654-5', 'correo@ejemplo.com', 'Región de Valparaiso', 'SAN FELIPE', 'candidato 2', 'Web', 'TV', 'Redes Sociales', 'Amigo');
 
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `candidatos`
+--
+ALTER TABLE `candidatos`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `votantes`
@@ -73,10 +92,16 @@ ALTER TABLE `votantes`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `candidatos`
+--
+ALTER TABLE `candidatos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT de la tabla `votantes`
 --
 ALTER TABLE `votantes`
-  MODIFY `id_votante` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `id_votante` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -1,6 +1,7 @@
 <?php
+/* conexion a la tabla regiones */
 
-include('./config/conexion_2.php');
+include('./config/conexion_2.php'); //
 
 $sentenciaSQL=$conexion_2->prepare("SELECT * FROM regiones");
 $sentenciaSQL->execute();

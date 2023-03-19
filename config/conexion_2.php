@@ -1,9 +1,16 @@
 <?php
-/* BASE DE DATOS COMUNAS POR REGIONES */
+/*
+*
+* CONEXION A BASE DE DATOS COMUNA_REGION
+*
+*/
+
 $host="localhost";
-$bd="comunas_por_regiones";
+$bd="comuna_region";
 $usuario="root";
 $contrasenia="";
+
+/* CONEXION CREADA PARA OBTENER LOS DATOS DE LOS SELECT DINAMICOS */
 
 try {
     $conexion_2=new PDO("mysql:host=$host;dbname=$bd",$usuario,$contrasenia);
