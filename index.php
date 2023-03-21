@@ -46,7 +46,6 @@ $sentenciaSQL=$conexion->prepare("SELECT * FROM votantes");
 $sentenciaSQL->execute();
 $registroVotantes=$sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
 
-
 ?>
 
 <!DOCTYPE html>
@@ -56,9 +55,10 @@ $registroVotantes=$sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>registro votaciones</title>
+    
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/style.css">
-    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    
 </head>
 <body>
     <section class="formulario">
@@ -71,22 +71,23 @@ $registroVotantes=$sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
             <form method="post">
                 <div class="item">
                     <label for="txtNombre" class="label-data">Nombre y Apellido</label>
-                    <input type="text" class="input-data" name="txtNombre" id="txtNombre" required>
+                    <input type="text" class="input-data" name="txtNombre" id="txtNombre" >
                 </div>
 
                 <div class="item">
                     <label for="txtAlias" class="label-data">Alias</label>
-                    <input type="text" class="input-data" name="txtAlias" id="txtAlias" required>
+                    <input type="text" class="input-data" name="txtAlias" id="txtAlias" >
                 </div>
 
                 <div class="item">
                     <label for="txtRut" class="label-data">RUT</label>
-                    <input type="text" class="input-data" name="txtRut" id="txtRut" required>
+                    <input type="text" class="input-data" name="txtRut" id="txtRut" >
+                    <div id="mensaje"></div>
                 </div>
 
                 <div class="item">
                     <label for="txtEmail" class="label-data">Email</label>
-                    <input type="email" class="input-data" name="txtEmail" id="txtEmail" required>
+                    <input type="email" class="input-data" name="txtEmail" id="txtEmail" >
                 </div>
 
                 <div class="item">
@@ -147,7 +148,7 @@ $registroVotantes=$sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
                     <label class="label-check" for="txtAmigo">Amigo</label>
                 </div>
 
-                <section class="votar">
+                <section class="seccion-votar">
                     <button type="submit" name="accion" id="votar" value="votar">Votar</button>
                 </section>
             </form>
@@ -191,30 +192,6 @@ $registroVotantes=$sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
             </tr>
         <?php } ?>
         </tbody>
-
-<!-- <script src="js/index.js"></script> -->
-<script type="text/javascript">
-	$(document).ready(function() {
-		//$('#txtRegion').val(2);
-		recargaLista();
-
-		S('#txtRegion').change(function() => {
-			recargaLista();
-		});
-	})	
-</script>
-
-<script type="text/javascript">
-	function recargaLista() {
-		$.ajax({
-			type:"POST",
-			url:"datos.php",
-			data:"continente=" + $('#txtRegion').val(),
-			succes:function(r){
-				$('#select2lista').html(r);
-			}
-		});
-	}
-</script>
+    </table>
 </body>
 </html>
