@@ -1,0 +1,67 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 14px;
+    font-weight: bold;
+}
+body {
+    width: 100%;
+}
+.formulario {
+    width: 580px;
+    height: 405px;
+    margin-left: 100px;
+    border: 1px solid black;
+    margin: 50px;
+}
+.form-header {
+    height: 50px;
+    padding: 20px 12px;
+}
+.card-form {
+    display: flex;
+    flex-direction: column;
+    margin: 15px;
+    border: 1px solid grey;
+    width: 550px;
+    height: 320px;
+    padding: 20px;
+}
+.item {
+    display: flex;
+    width: 560px;
+    align-items: center;
+    margin-bottom: 10px;
+    align-content: center;
+}
+.label-data {
+    width: 200px;
+}
+.input {
+    height: 25px;
+}
+.input-data {
+    width: 200px;
+}
+.input {
+    width: 200px;
+}
+.input-check {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.label-check {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.votar {
+    margin: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+p {
+    margin-left: 10px;
+    margin-top: 13px;
+}

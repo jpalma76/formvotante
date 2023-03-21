@@ -12,3 +12,7 @@ de la votaciones.
 
 - se modifican todos los archivos para implementacion de cambios.
 
+- el archivo index.js contiene un algoritmo de verificación del rut conocido como algoritmo de modulo 11,
+el cual se encuentra implenetado en el index.html, funciona bien, tengo que ver como agregarlo al código,
+actualmente me encuentro estudiando e investigando como conectarlo con php, hice unas pruebas iniciales y en un principio
+no me funcionó.
